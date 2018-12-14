@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TravelHelper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="small.css">
+    <link rel="stylesheet" media="screen and (min-width: 600px)" href="tablet.css">
+    <link rel="stylesheet" media="screen and (min-width: 768px)" href="tabletsmall.css">
+    <link rel="stylesheet" media="screen and (min-width: 861px)" href="largetablet.css">
+    <link rel="stylesheet" media="screen and (min-width: 992px)" href="laptop.css">
+    <link rel="stylesheet" media="screen and (min-width: 1200px)" href="speciallaptop.css">
+    <link rel="stylesheet" media="screen and (min-width: 1312px)" href="largelaptop.css">
+    <link rel="icon" type="image/jpg" size="50x50" href="data:image/jpeg;base64,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">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+<body>
+        
+    <header>
+        <h1>
+            Travel<span>Helper</span>
+        </h1>
+                <div class="topnav">
+                        <a class="active" href="#MyLists">My Lists</a>
+                        <a href="#ManageTrips">Manage Trips</a>
+                        <a href="#Support">Support</a> <div class="dropdown">
+                <button class="dropbtn">Account 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Log in</a>
+                  <a href="#">Create acount</a>
+                 
+                </div>
+                      </div>
+                      
+   
+    </header>
+    <main>
+                  <button class="tablink" onclick="openCity('London', this, '#1b6aae00')" id="defaultOpen">Hotels</button>
+                  <button class="tablink" onclick="openCity('Paris', this, '#ef0c0c00')">Flights</button>
+                  <button class="tablink" onclick="openCity('Tokyo', this, '#362d2d00')">Cars</button>
+                  <button class="tablink" onclick="openCity('Oslo', this, '#ffffff00')">Things to Do</button>
+                  <button class="tablink" onclick="openCity('Helsinki', this, '#ffffff00')">Holiday Rentals</button>
+                  
+        <div>
+            <div id="London" class="tabcontent">
+                <div style="margin-top: 20px;" class="div1">
+                    <h1 style="color: black;" > Search Hotels</h1>
+                    <form action="#">
+                    <label for="country" style="color: black;" >Going to</label>
+                    <br>
+                    <select  id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                        <option value="finland">Finland</option>
+                        <option value="helsinki">Finland, Helsinki</option>
+                    </select>
+                    <br>
+                    <section >
+                    <label for="start" style="color: black;">Check-in:</label>
+                        <br>
+                    <input class="check" type="date" id="start" name="trip-start"
+                           value="2018-12-5">
+
+                     </section>
+                     <section >
+                        <label for="start1" style="color: black;">Check-out:</label>
+                            <br>
+                        <input class="check" type="date" id="start1" name="trip-start1"
+                               value="2018-12-5">
+    
+                         </section>
+                         <label for="room" style="color: black;" >Room:</label>
+                         <br>
+                         <select class="select1" id="room" name="room">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                             <option value="9+">9+</option>
+                             
+                         </select>
+                         <br>
+                         <label for="adult" style="color: black;" >Adult(18+):</label>
+                         <br>
+                         <select class="select1" id="adult" name="adult">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                             <option value="9">9</option>
+                             <option value="10">10</option>
+                             <option value="11">11</option>
+                             <option value="12">12</option>
+                             <option value="13">13</option>
+                             <option value="14">14</option>
+
+                             
+                         </select>
+                         <br>
+                         <label for="children" style="color: black;" >Children (0-17):</label>
+                         <br>
+                         <select class="select1" id="children" name="children">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                             <option value="9">9</option>
+                             <option value="10">10</option>
+                             <option value="11">11</option>
+                             <option value="12">12</option>
+                             <option value="13">13</option>
+                             <option value="14">14</option>
+
+                             
+                         </select>
+                         <br>
+                         <input class="search" type="submit" value="Search">
+                        </form>
+                    </div>
+                  </div>
+                  </div>
+                  
+                  <div id="Paris" class="tabcontent">
+                    <h1 style="color: black">Search Flights</h1>
+                    <form action="#">
+                        
+                            <label for="country" style="color: rgb(15, 14, 14);" >Picking up</label>
+                            <br>
+                            <select  id="country" name="country">
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                                <option value="finland">Finland</option>
+                                <option value="helsinki">Finland, Helsinki</option>
+                            </select>
+                            <br>
+                            <label for="country" style="color: rgb(20, 19, 19);" >Dropping off</label>
+                            <br>
+                            <select  id="country" name="country">
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                                <option value="finland">Finland</option>
+                                <option value="helsinki">Finland, Helsinki</option>
+                            </select>
+                            <br>
+                           <section>
+                            <label for="start" style="color: black;">Check-in:</label>
+                                <br>
+                            <input class="check" type="date" id="start" name="trip-start"
+                                   value="2018-12-5">
+        
+                             </section>
+                             <section >
+                                <label for="start1" style="color: black;">Check-out:</label>
+                                    <br>
+                                <input class="check" type="date" id="start1" name="trip-start1"
+                                       value="2018-12-5">
+            
+                                 </section>
+                              
+                                 <label for="adult" style="color: black;" >Adult(18+):</label>
+                         <br>
+                                 <select class="select1" id="adult" name="adult">
+                                     <option value="1">1</option>
+                                     <option value="2">2</option>
+                                     <option value="3">3</option>
+                                     <option value="4">4</option>
+                                     <option value="5">5</option>
+                                     <option value="6">6</option>
+                                     <option value="7">7</option>
+                                     <option value="8">8</option>
+                                     <option value="9">9</option>
+                                     <option value="10">10</option>
+                                     <option value="11">11</option>
+                                     <option value="12">12</option>
+                                     <option value="13">13</option>
+                                     <option value="14">14</option>
+        
+                                     
+                                 </select>
+                                 <br>
+                                 <label for="children" style="color: black;" >Children (0-17):</label>
+                                 <br>
+                                 <select class="select1" id="children" name="children">
+                                     <option value="1">1</option>
+                                     <option value="2">2</option>
+                                     <option value="3">3</option>
+                                     <option value="4">4</option>
+                                     <option value="5">5</option>
+                                     <option value="6">6</option>
+                                     <option value="7">7</option>
+                                     <option value="8">8</option>
+                                     <option value="9">9</option>
+                                     <option value="10">10</option>
+                                     <option value="11">11</option>
+                                     <option value="12">12</option>
+                                     <option value="13">13</option>
+                                     <option value="14">14</option>
+        
+                                     
+                                 </select>
+                                 <br>
+                                 <br>
+                                 <input class="search" type="submit" value="Search">
+                                </form>
+
+
+
+                  </div>
+                  
+                  <div id="Tokyo" class="tabcontent">
+                   <div class="div2"  style="margin-top: 100px; margin-bottom: 100px;"> <h1>Search Car</h1>
+                    <form action="#">
+                        
+                            <label for="country" style="color: rgb(250, 246, 246);" >Picking up</label>
+                            <br>
+                            <select  id="country" name="country">
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                                <option value="finland">Finland</option>
+                                <option value="helsinki">Finland, Helsinki</option>
+                            </select>
+                            <br>
+                            <label for="country" style="color: rgb(250, 246, 246);" >Dropping off</label>
+                            <br>
+                            <select  id="country" name="country">
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                                <option value="finland">Finland</option>
+                                <option value="helsinki">Finland, Helsinki</option>
+                            </select>
+                            <br>
+                            <section >
+                                    <label for="start" style="color: rgb(230, 225, 225);">Pick-up date</label>
+                                        <br>
+                                    <input style="width: 32%;" class="check" type="date" id="start" name="trip-start"
+                                           value="2018-12-5"><label for="appt"></label>
+
+                                           <input style="padding: 12px 20px;
+                                           margin: 8px 0;
+                                           display: inline-block;
+                                           border: 1px solid #ccc;
+                                           border-radius: 4px;
+                                           box-sizing: border-box;
+                                           font-weight: bold;" type="time" id="appt" name="appt"
+                                                  min="9:00" max="18:00" required>
+                
+                                     </section>
+                                     <section >
+                                            <label for="start" style="color: rgb(247, 241, 241);">Drop-off date</label>
+                                                <br>
+                                                <input style="width: 32%;" class="check" type="date" id="start" name="trip-start"
+                                                value="2018-12-5"><label for="appt"></label>
+     
+                                                <input style="padding: 12px 20px;
+                                                margin: 8px 0;
+                                                display: inline-block;
+                                                border: 1px solid #ccc;
+                                                border-radius: 4px;
+                                                box-sizing: border-box;
+                                                font-weight: bold;" type="time" id="appt" name="appt"
+                                                       min="9:00" max="18:00" required>
+                     </section>
+                                             <br>
+                                             <input class="search" type="submit" value="Search">
+                                            </form>     
+
+                                        </div>
+
+
+                  </div>
+                  
+                  <div id="Oslo" class="tabcontent">
+                      <div style=" margin-top: 100px; margin-bottom: 100px;">
+                    <h1>Search Things to Do</h1>
+
+                    <form action="#">
+                        
+                            <label for="country" style="color: rgb(243, 14, 14);" >Destination</label>
+                            <br>
+                            <select  id="country" name="country">
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                                <option value="finland">Finland</option>
+                                <option value="helsinki">Finland, Helsinki</option>
+                            </select>
+                            <br>
+                            <section >
+                                    <label for="start" style="color: rgb(233, 23, 23);">From:</label>
+                                        <br>
+                                    <input class="check" type="date" id="start" name="trip-start"
+                                           value="2018-12-5">
+                
+                                     </section>
+                                        <br>
+                                        <section >
+                                                <label for="start" style="color: rgb(236, 24, 24);">To:</label>
+                                                    <br>
+                                                <input class="check" type="date" id="start" name="trip-start"
+                                                       value="2018-12-5">
+                            
+                                                 </section>
+                                                 <br>
+                                                 <input class="search" type="submit" value="Search">
+                                                </form>  </div>   
+
+                  </div>
+                  <div id="Helsinki" class="tabcontent">
+                      <div style="margin-top: 100px; margin-left: 100px;">
+                        <h1>Search Holiday Rentals</h1>
+                        <form action="#">
+                                <label for="country" style="color: black;" >Destination</label>
+                                <br>
+                                <select  id="country" name="country">
+                                    <option value="australia">Australia</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="usa">USA</option>
+                                    <option value="finland">Finland</option>
+                                    <option value="helsinki">Finland, Helsinki</option>
+                                </select>
+                                <br>
+                                <section >
+                                <label for="start" style="color: black;">Check-in:</label>
+                                    <br>
+                                <input class="check" type="date" id="start" name="trip-start"
+                                       value="2018-12-5">
+            
+                                 </section>
+                                 <section >
+                                    <label for="start1" style="color: rgb(241, 233, 233);">Check-out:</label>
+                                        <br>
+                                    <input class="check" type="date" id="start1" name="trip-start1"
+                                           value="2018-12-5">
+                                           <br>
+                                           <label for="children" style="color: rgb(252, 249, 249);" >Guests</label>
+                                           <br>
+                                           <select class="select1" id="children" name="children">
+                                               <option value="1">1</option>
+                                               <option value="2">2</option>
+                                               <option value="3">3</option>
+                                               <option value="4">4</option>
+                                               <option value="5">5</option>
+                                               <option value="6">6</option>
+                                               <option value="7">7</option>
+                                               <option value="8">8</option>
+                                               <option value="9">9</option>
+                                               <option value="10">10</option>
+                                               <option value="11">11</option>
+                                               <option value="12">12</option>
+                                               <option value="13">13</option>
+                                               <option value="14">14</option>
+                  
+                                               
+                                           </select>
+                                           <br>
+                                           <br>
+                                           <input class="search" type="submit" value="Search">
+                                          </form>   </div>  
+
+
+
+
+                      </div>
+                  
+                  
+                  <script>
+                  function openCity(cityName,elmnt,color) {
+                      var i, tabcontent, tablinks;
+                      tabcontent = document.getElementsByClassName("tabcontent");
+                      for (i = 0; i < tabcontent.length; i++) {
+                          tabcontent[i].style.display = "none";
+                      }
+                      tablinks = document.getElementsByClassName("tablink");
+                      for (i = 0; i < tablinks.length; i++) {
+                          tablinks[i].style.backgroundColor = "";
+                      }
+                      document.getElementById(cityName).style.display = "block";
+                      elmnt.style.backgroundColor = color;
+                  
+                  }
+                  // Get the element with id="defaultOpen" and click on it
+                  document.getElementById("defaultOpen").click();
+                  </script>
+    </main>
+    <article >
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <a href="https://www.norwegian.com/fi/?gclid=EAIaIQobChMIg6P_vY2f3wIVSuWaCh2QWQNYEAAYASAAEgIBkPD_BwE&gclsrc=aw.ds">
+              <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" style="width:100%">
+              </a><div class="text">Norwegian Sale for seven days</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <a href="">
+              <img src="https://images.unsplash.com/photo-1512329301597-18dd60e894bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" style="width:100%">
+              </a><div style="color: blue;" class="text">SALE on Finnair</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <a href="https://www.hotels.com/?locale=en_IE&pos=HCOM_EMEA&rffrid=sem.hcom.EM.google.003.00.03.s.kwrd=c.313349782541.64960126040.1624533350.1t1.kwd-10890042.9072483..luxury%20hotel.EAIaIQobChMIornB842f3wIVWKWaCh3soQT_EAAYASAAEgIZXfD_BwE.aw.ds&PSRC=AFF05&gclid=EAIaIQobChMIornB842f3wIVWKWaCh3soQT_EAAYASAAEgIZXfD_BwE&gclsrc=aw.ds">
+              <img src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80" style="width:100%">
+              </a><div style="color: #494343a9;" class="text">Stay seven days on Luxury Hotel for 700$</div>
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            
+            <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            } </script>
+
+
+    </article>
+
+
+   <article class="second">
+       <script>
+       AOS.init();
+       </script>
+       <div data-aos="fade-up"> 
+
+       
+    <h2>The travelhelper route to the very best cheap flights</h2></div>
+    <p data-aos="fade-up">‘To travel hopefully is a better thing than to arrive’ – so said Robert Louis Stevenson, well before the era of low-cost flights and multi-stop itineraries. Stuck in the queue for check-in on the busiest week of the summer holidays, we may well recall this optimistic quote through gritted teeth. Indeed, the outward journey can make a huge difference to the first impression of a new destination. As soon as you start to think about planning your next holiday, make travelhelper your first point of departure. The easy search options let you see exactly what you can get for your money – finding cheap flights is only half the story. travelhelper brings together the world’s biggest choice of flights, all on one site, so by comparing different carriers, routes, dates and times, you could get an even better deal than you bargained for.
+    </p>
+    <h2 data-aos="fade-up">Finding the best flight deals is the first step to the perfect holiday</h2>
+    <p data-aos="fade-up" >Nothing beats leaving the grey UK skies behind and jetting off through the clouds to the sizzling Caribbean or the sparkling Med. Or swapping a dull weekend of household chores for shopping in Paris or clubbing in Barcelona. A low-cost getaway with your mates, a romantic break with your partner or a special celebration with the whole family all start with a flight search – and with a little careful preparation, you can be sure of getting the golden ticket with your name on it instead of everyone else’s leftovers. Travelhelper offers a wide range of search options – one-way or round-trip flights, single or multiple destinations, direct or multi-stop routes. Compare prices on different dates if your travel plans are flexible, or see if you can get a better deal by flying to or from other airports nearby.
+    </p> 
+    <h2 data-aos="fade-up">Tips on how to find flights that work for you</h2>
+    <p data-aos="fade-up">
+    The kind of holiday you’ve got in mind will have a bearing on what to look for when booking flights. A short hop from the UK to a European capital won’t give you much pause for thought – in a few clicks you’ll be printing off your e-boarding pass and packing your cabin bag. A long-haul flight to a faraway destination calls for a lot more research, however, to make sure your adventure gets off to the best possible start. Consider the departure and arrival times – can you get from home to the airport at a reasonable hour, or should you factor in an overnight stay at a hotel near the terminal? Will public transport still be running when you land, or should you book a private transfer? Can you stagger your dates to avoid busy weekend peaks? When booking a night flight, is it worth paying for an upgrade to ensure a restful journey? If you have a lengthy stopover en route, will there be somewhere to eat and relax while you wait for your connection? Our site is full of handy tips on these and other travel topics.
+    </p>
+    <br>
+    <br>
+    <hr>
+    <div>
+    <h2 data-aos="fade-up" >Partner Airlines</h2>
+    <div  class="finnair">
+        <div>
+        <a data-aos="fade-up" href="#">Finnair</a>
+        <br>
+        <a data-aos="fade-up" href="#">British Airways</a></div>
+        <div>
+            <a data-aos="fade-up" href="#">SAS Scandinavian Airlines</a>
+        <br>
+        <a data-aos="fade-up" href="#">Air Berlin</a></div>
+        <div >
+                <a data-aos="fade-up" href="#">Lufthansa</a>
+                <br>
+                <a data-aos="fade-up" href="#">Tap Portugal</a>
+        </div>
+        <div >
+                <a data-aos="fade-up" href="#">Turkish Airlines</a>
+                <br>
+                <a data-aos="fade-up" href="#">Ukraine International Airlines</a>
+        </div>
+
+         </div></div>
+        <br>
+        <hr>
+        <div>
+        <h2 data-aos="fade-up">Europe</h2>
+        <div class="finnair">
+            <div>
+            <a data-aos="fade-up" href="#">London</a>
+            <br>
+            <a data-aos="fade-up" href="#">Rome</a></div>
+            <div >
+                <a data-aos="fade-up" href="#">Lsibon</a>
+            <br>
+            <a data-aos="fade-up" href="#">Copenhagen</a></div>
+            <div>
+                    <a data-aos="fade-up" href="#">Budapest</a>
+                    <br>
+                    
+            </div>
+            <div data-aos="fade-up">
+                    <a href="#">Prague</a>
+                    <br>
+                   
+            </div></div>
+             <br>
+            <hr>
+            <div>
+                <h2 data-aos="fade-up" >USA & Canada</h2>
+                <div class="finnair">
+                    <div> 
+                    <a data-aos="fade-up" href="#">New York</a>
+                    <br>
+                    <a data-aos="fade-up"  href="#">Chicago</a></div>
+                    <div>
+                        <a data-aos="fade-up" href="#">San Francisco</a>
+                    <br>
+                    <a data-aos="fade-up"  href="#">Boston</a></div>
+                    <div data-aos="fade-up">
+                            <a href="#">Los Angeles</a>
+                            <br>
+                            
+                    </div>
+                    <div data-aos="fade-up" >
+                            <a href="#">Miami</a>
+                            <br>
+                           
+                    </div></div>
+                    <br>
+                    <hr>
+                    <div>
+                        <h2 data-aos="fade-up" >Worldwide</h2>
+                        <div class="finnair">
+                            <div >
+                            <a data-aos="fade-up"  href="#">Tokyo</a>
+                            <br>
+                            <a data-aos="fade-up" href="#">Rio de Janeiro</a></div>
+                            <div>
+                                <a data-aos="fade-up" href="#">Dubai</a>
+                            <br>
+                            <a data-aos="fade-up" href="#">Singapore</a></div>
+                            <div data-aos="fade-up">
+                                    <a href="#">Bangkok</a>
+                                    <br>
+                                    
+                            </div>
+                            <div data-aos="fade-up">
+                                    <a href="#">Istanbul</a>
+                                    <br>
+                                   
+                            </div></div>
+                            <br>
+                            <hr>
+                            <div>
+                                <h2 data-aos="fade-up" >Most Popular Routes</h2>
+                                <div class="finnair">
+                                    <div>
+                                    <a data-aos="fade-up" href="#">Bangkok</a>
+                                    <br>
+                                    <a data-aos="fade-up" href="#">Stockholm</a></div>
+                                    <div>
+                                        <a data-aos="fade-up" href="#">New York</a>
+                                    <br>
+                                    <a data-aos="fade-up" href="#">Kittilä</a></div>
+                                    <div>
+                                            <a data-aos="fade-up" href="#">Amsterdam</a>
+                                            <br>
+                                            <a data-aos="fade-up" href="#">Lisbon</a>
+                                            
+                                    </div>
+                                    <div data-aos="fade-up"> 
+                                            <a  href="#">Milan</a>
+                                            <br>
+                                           
+                                    </div></div>    
+                                    <br>
+                                    <hr>
+
+                                    <div>
+                                        <h2 data-aos="fade-up">Beach vacations</h2>
+                                        <div class="finnair">
+                                            <div>
+                                            <a data-aos="fade-up" href="#">Miami</a>
+                                            <br>
+                                            <a data-aos="fade-up" href="#">Dubai</a></div>
+                                            <div>
+                                                <a data-aos="fade-up" href="#">Alicante</a>
+                                            <br>
+                                            <a data-aos="fade-up" href="#">Phuket</a></div>
+                                            <div>
+                                                    <a data-aos="fade-up" href="#">Nice</a>
+                                                    <br>
+                                                    
+                                                    
+                                            </div>
+                                            <div>
+                                                    <a data-aos="fade-up" href="#">Malaga</a>
+                                                    <br>
+                                                   
+                                            </div></div>       
+        <br>
+        <hr>
+        <div>
+            <h2 data-aos="fade-up">CityWeekends</h2>
+            <div class="finnair">
+                <div>
+                <a data-aos="fade-up" href="#">London</a>
+                <br>
+                <a data-aos="fade-up" href="#">Budapest</a></div>
+                <div>
+                    <a data-aos="fade-up"  href="#">Barcelona</a>
+                <br>
+                <a data-aos="fade-up" href="#">Rome</a></div>
+                <div>
+                        <a data-aos="fade-up" href="#">Berlin</a>
+                        <br>
+                        
+                        
+                </div>
+                <div>
+                        <a data-aos="fade-up" href="#">Prague</a>
+                        <br>
+                       
+                </div></div>   
+                <br>
+                <hr>    
+
+
+   </article>
+   <footer >
+<h3>TravelHelper</h3>
+<div>
+    <a href="#">About Us</a>
+    &nbsp;&nbsp;<div>
+    <a href="#">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div>
+    <a href="#">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div>
+    <a href="#">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div>
+    <a href="#">Booking Terms and Conditions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div>
+    <a href="#">Site Terms</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+    
+</div>
+
+   </footer>
+</body>
+</html>
